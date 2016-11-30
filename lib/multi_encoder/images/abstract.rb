@@ -31,7 +31,7 @@ module MultiEncoder
 
     private
     def eps_path
-      "/tmp/#{@contents}-#{Time.now.strftime('%Y%m%d-%H%M%S')}.eps"
+      "#{ENV['MULTIENCODER_HOME_PATH']}/#{@contents}-#{Time.now.strftime('%Y%m%d-%H%M%S')}.eps"
     end
   end
 end

@@ -16,7 +16,7 @@ module MultiEncoder
       end
 
       def root
-        Pathname.new('/tmp')
+        Pathname.new("#{ENV['MULTIENCODER_HOME_PATH']}")
       end
 
       def directory
@@ -32,7 +32,7 @@ module MultiEncoder
       end
 
       def file_path
-        Pathname.new "/tmp/#{filename}.png"
+        Pathname.new "#{ENV['MULTIENCODER_HOME_PATH']}/#{filename}.png"
       end
 
       def exists?
