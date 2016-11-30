@@ -16,7 +16,7 @@ module MultiEncoder
       end
 
       def root
-        Pathname.new("#{ENV['MULTIENCODER_HOME_PATH']}")
+        Pathname.new("#{Storage.aws_bucket_tmp_path}")
       end
 
       def directory
@@ -32,7 +32,7 @@ module MultiEncoder
       end
 
       def file_path
-        Pathname.new "#{ENV['MULTIENCODER_HOME_PATH']}/#{filename}.png"
+        Pathname.new "#{Storage.aws_bucket_tmp_path}/#{filename}.png"
       end
 
       def exists?

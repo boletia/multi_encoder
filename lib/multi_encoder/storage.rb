@@ -6,6 +6,7 @@ module MultiEncoder
     mattr_accessor :aws_bucket_prefix
     mattr_accessor :aws_access_key
     mattr_accessor :aws_secret_access_key
+    mattr_accessor :aws_bucket_tmp_path
 
     def self.configure
       yield self
