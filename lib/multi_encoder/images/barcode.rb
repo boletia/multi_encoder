@@ -10,7 +10,9 @@ module MultiEncoder
     end
 
     def write
-      barcode = Gbarcode.barcode_create '1contents.downcase'
+      p 'lalalaalala'
+      p @contents.downcase
+      barcode = Gbarcode.barcode_create @contents.downcase
       Gbarcode.barcode_encode extract_options(barcode), DEFAULT_ENCODING
       FileUtils.mkdir_p directory
       eps = File.open("#{eps_path}", 'wb')
