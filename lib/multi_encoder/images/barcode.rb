@@ -3,14 +3,14 @@ require 'tempfile'
 module MultiEncoder
   class BarcodeImage < AbstractImage
 
-    DEFAULT_ENCODING = Gbarcode::BARCODE_128 | Gbarcode::BARCODE_NO_CHECKSUM
+    DEFAULT_ENCODING = Gbarcode::BARCODE_128B | Gbarcode::BARCODE_NO_CHECKSUM
 
     def type
       'barcodes'
     end
 
     def write
-      barcode = Gbarcode.barcode_create @contents.upcase
+      barcode = Gbarcode.barcode_create @contents.downcase
       Gbarcode.barcode_encode extract_options(barcode), DEFAULT_ENCODING
       FileUtils.mkdir_p directory
       eps = File.open("#{eps_path}", 'wb')
