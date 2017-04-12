@@ -36,7 +36,7 @@ This will compile the gbarcode extension, included within.
 
 ### Barcodes
 
-The <tt><%= barcode %></tt> heleper generates a barcode in BARCODE_128B
+The <tt><%= barcode %></tt> heleper generates a barcode in BARCODE_128
 format and accepts the following options:
 
     width
