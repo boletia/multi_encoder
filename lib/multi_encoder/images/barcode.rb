@@ -10,8 +10,6 @@ module MultiEncoder
     end
 
     def write
-      p 'lalalaalala'
-      p @contents.downcase
       barcode = Gbarcode.barcode_create @contents.downcase
       Gbarcode.barcode_encode extract_options(barcode), DEFAULT_ENCODING
       FileUtils.mkdir_p directory
