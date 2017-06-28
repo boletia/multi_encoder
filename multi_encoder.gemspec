@@ -23,6 +23,7 @@ Gem::Specification.new do |spec|
   spec.requirements << "ImageMagick"
 
   spec.add_dependency "qrencoder", "= 1.4.1"
+  spec.add_dependency("barby", "= 0.6.5")
   spec.add_dependency "activesupport", ">= 3.0.0"
   spec.add_dependency "actionpack", ">= 3.0.0"
   spec.add_dependency "fog", "~> 1.16.0"
