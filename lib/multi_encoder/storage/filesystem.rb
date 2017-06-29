@@ -15,8 +15,8 @@ module MultiEncoder
       end
 
       def custom_directory
-        Pathname.new("#{root}/#{Storage.aws_bucket_tmp_path}").mkdir if !Pathname.new("#{root}/#{Storage.aws_bucket_tmp_path}").exist?
-        Pathname.new("#{root}/#{Storage.aws_bucket_tmp_path}")
+        Pathname.new("#{Storage.aws_bucket_tmp_path}").mkdir if !Pathname.new("#{Storage.aws_bucket_tmp_path}").exist?
+        Pathname.new("#{Storage.aws_bucket_tmp_path}")
       end
 
       def file_path
