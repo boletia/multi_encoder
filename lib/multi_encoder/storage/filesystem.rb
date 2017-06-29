@@ -15,11 +15,16 @@ module MultiEncoder
       end
 
       def file_path
-        Pathname.new "#{directory.join(@contents)}.#{MultiEncoder::BarcodeImage::OUTPUT_FORMAT}"
+        Pathname.new "#{Storage.aws_bucket_tmp_path}/#{type}-#{filename}.#{MultiEncoder::BarcodeImage::OUTPUT_FORMAT}"
       end
 
       def exists?
         file_path.exist?
+      end
+
+      private
+      def filename
+        fingerprint.join
       end
 
     end

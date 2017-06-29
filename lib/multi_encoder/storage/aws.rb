@@ -32,7 +32,7 @@ module MultiEncoder
       end
 
       def file_path
-        Pathname.new "#{Storage.aws_bucket_tmp_path}/#{filename}.png"
+        Pathname.new "#{Storage.aws_bucket_tmp_path}/#{type}-#{filename}.png"
       end
 
       def exists?
