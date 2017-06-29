@@ -7,19 +7,29 @@ module MultiEncoder
       end
 
       def root
-        defined?(Rails) ? Rails.root : Pathname.new('/tmp')
+        Pathname.new('/tmp')
       end
 
       def directory
         root.join 'public', 'system', type, *fingerprint
       end
 
+      def custom_directory
+        Pathname.new("#{Storage.aws_bucket_tmp_path}").mkdir if !Pathname.new("#{Storage.aws_bucket_tmp_path}").exist?
+        Pathname.new("#{Storage.aws_bucket_tmp_path}")
+      end
+
       def file_path
-        Pathname.new "#{directory.join(@contents)}.#{MultiEncoder::BarcodeImage::OUTPUT_FORMAT}"
+        Pathname.new "#{custom_directory}/#{type}-#{filename}.#{MultiEncoder::BarcodeImage::OUTPUT_FORMAT}"
       end
 
       def exists?
         file_path.exist?
+      end
+
+      private
+      def filename
+        fingerprint.join
       end
 
     end
