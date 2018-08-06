@@ -8,14 +8,10 @@ module MultiEncoder
     end
 
     def write
-      barcode = Barby::Code128B.new(@contents.downcase)
-      barcode_png = Barby::PngOutputter.new(barcode)
-      extract_options(barcode_png)
-      File.open("#{file_path}", 'wb'){ |f|
-        f.write barcode_png.to_png()
-      }
-
-      save if respond_to? :save
+      svg = ::Barby::Code128.new(@contents.downcase).to_svg(margin: @options[:margin], height: @options[:height])
+      svg.sub!('<svg ', '<svg preserveAspectRatio="none" ')
+      data_svg = "data:image/svg+xml;utf8,#{svg.gsub(/\n/, '')}"
+      data_svg
     end
 
     private

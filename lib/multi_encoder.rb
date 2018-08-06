@@ -8,4 +8,6 @@ require 'storage'
 require 'images'
 require 'barby/barcode/code_128'
 require 'barby/outputter/png_outputter'
+require 'barby/outputter/svg_outputter'
+require 'rqrcode'
 require 'railtie' if defined? Rails

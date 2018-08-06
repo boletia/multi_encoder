@@ -10,8 +10,7 @@ module MultiEncoder
     end
 
     def href
-      write unless exists?
-      url
+      write
     end
 
     private
