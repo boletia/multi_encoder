@@ -14,13 +14,8 @@ module MultiEncoder
         root.join 'public', 'system', type, *fingerprint
       end
 
-      def custom_directory
-        Pathname.new("#{Storage.aws_bucket_tmp_path}").mkdir if !Pathname.new("#{Storage.aws_bucket_tmp_path}").exist?
-        Pathname.new("#{Storage.aws_bucket_tmp_path}")
-      end
-
       def file_path
-        Pathname.new "#{custom_directory}/#{type}-#{filename}.#{MultiEncoder::BarcodeImage::OUTPUT_FORMAT}"
+        Pathname.new "#{root}/#{type}-#{filename}.#{MultiEncoder::BarcodeImage::OUTPUT_FORMAT}"
       end
 
       def exists?
